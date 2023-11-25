@@ -1,11 +1,14 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', 
+
+
+function() {
   const questionsData = [
     {
       title: 'Client Information',
       inputs: [
-        { label: 'Full Name of Client:', type: 'text', name: 'clientName', required: true },
-        { label: 'Email:', type: 'email', name: 'clientEmail', required: true },
-        { label: 'Phone Number:', type: 'tel', name: 'clientPhone', required: true }
+        { label: 'What is your full name?', type: 'text', name: 'clientName', required: true },
+        // { label: 'Email:', type: 'email', name: 'clientEmail', required: true },
+        // { label: 'Phone Number:', type: 'tel', name: 'clientPhone', required: true }
       ]
     },
     {
@@ -62,7 +65,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentQuestionIndex !== 0) {
       const backButton = document.createElement('button');
       backButton.textContent = 'Back';
-      backButton.classList.add('back-button'); // Add a class for styling
+      backButton.style.backgroundColor = 'gray';
+      backButton.style.border = 'none';
+      backButton.style.color = 'white';
+      backButton.classList.add('back-button'); 
       backButton.addEventListener('click', () => {
         goToPreviousQuestion();
       });
@@ -73,13 +79,13 @@ document.addEventListener('DOMContentLoaded', function() {
       const nextButton = document.createElement('button');
       if (currentQuestionIndex !== questionsData.length - 1) {
         nextButton.textContent = 'Next';
-        nextButton.classList.add('navigation-button'); // Add a class for styling
+        nextButton.classList.add('navigation-button'); 
         nextButton.addEventListener('click', () => {
           goToNextQuestion();
         });
       } else {
         nextButton.textContent = 'Submit';
-        nextButton.classList.add('submit-button'); // Add a class for styling
+        nextButton.classList.add('submit-button'); 
         nextButton.addEventListener('click', () => {
           form.removeEventListener('submit', formSubmitHandler);
           questionContainer.textContent = 'Thank you for completing the questionnaire!';
